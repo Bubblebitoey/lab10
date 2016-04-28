@@ -4,18 +4,24 @@ import javax.swing.*;
 
 public class UICoinNum extends JDialog {
 	private JPanel contentPane;
-	private JButton buttonOK;
+
+	private JTextField textField1;
+	private JLabel acceptingCoin;
 
 	public UICoinNum() {
 		setContentPane(contentPane);
-		setModal(true);
-		getRootPane().setDefaultButton(buttonOK);
 	}
 
-	public static void main(String[] args) {
-		UICoinNum dialog = new UICoinNum();
-		dialog.pack();
-		dialog.setVisible(true);
-		System.exit(0);
+	public JTextField getTextField1() {
+		return textField1;
+	}
+
+	public JLabel getAcceptCoin() {
+		return acceptingCoin;
+	}
+
+	public void run() {
+		pack();
+		setVisible(true);
 	}
 }
