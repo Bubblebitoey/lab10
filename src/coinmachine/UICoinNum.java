@@ -10,6 +10,7 @@ public class UICoinNum extends JDialog {
 
 	public UICoinNum() {
 		setContentPane(contentPane);
+		textField1.setEnabled(false);
 	}
 
 	public JTextField getTextField1() {
