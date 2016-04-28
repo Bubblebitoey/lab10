@@ -6,4 +6,6 @@
 .classpath
 .settings/
 .checkstyle
+.idea/
+*.iml
 

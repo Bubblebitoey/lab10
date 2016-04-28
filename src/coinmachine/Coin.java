@@ -1,15 +1,20 @@
 package coinmachine;
+
 /**
  * A Coin represents metalic money with a value.
  */
-public class Coin /*TODO implements Comparable<Coin> */ {
-	/** value of the coin */
+public class Coin implements Comparable<Coin> {
+	/**
+	 * value of the coin
+	 */
 	private final int value;
 	private final String currency;
 
 	/**
 	 * Initialize a new Coin.
-	 * @param value is the value of the Coin
+	 *
+	 * @param value
+	 * 		is the value of the Coin
 	 * @pre the value is positive
 	 */
 	public Coin(int value) {
@@ -22,8 +27,10 @@ public class Coin /*TODO implements Comparable<Coin> */ {
 		this.value = value;
 		this.currency = currency;
 	}
+
 	/**
 	 * Get the coin's value.
+	 *
 	 * @return the value of this coin.
 	 */
 	public int getValue() {
@@ -32,9 +39,12 @@ public class Coin /*TODO implements Comparable<Coin> */ {
 	
 	/**
 	 * Get the coin's currency.
+	 *
 	 * @return the currency of this coin.
 	 */
-	public String getCurrency() { return currency; }
+	public String getCurrency() {
+		return currency;
+	}
 	
 
 	/**
@@ -42,28 +52,34 @@ public class Coin /*TODO implements Comparable<Coin> */ {
 	 * It should be a value that is unlikely to change and
 	 * usually returns different hash values for objects with
 	 * different attribute values.
+	 *
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((currency == null) ? 0 : currency.hashCode());
+		result = prime * result + ((currency == null) ? 0: currency.hashCode());
 		result = prime * result + value;
 		return result;
 	}
 
 	/**
 	 * Two coins are equal if they have the same currency and value.
-	 * @param obj an Object to compare to this coin.
+	 *
+	 * @param obj
+	 * 		an Object to compare to this coin.
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
 	public boolean equals(Object obj) {
-//TODO Write a correct equals method for Coin.
-//     You can assume that the currency is never null.
-		return this == obj;
+		// check that ovj is subclass of Coin
+		if (obj instanceof Coin) {
+			if (((Coin) obj).getCurrency().equals(this.currency) && ((Coin) obj).getValue() == this.getValue()) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -71,6 +87,11 @@ public class Coin /*TODO implements Comparable<Coin> */ {
 	 */
 	@Override
 	public String toString() {
-		return value+"-"+currency;
+		return value + "-" + currency;
+	}
+
+	@Override
+	public int compareTo(Coin o) {
+		return 0;
 	}
 }
