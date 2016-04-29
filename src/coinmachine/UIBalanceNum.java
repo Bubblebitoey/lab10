@@ -30,7 +30,28 @@ public class UIBalanceNum extends JDialog {
 	public UIBalanceNum() {
 		setContentPane(contentPane);
 
+		oneBahtButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				machine.insert(new Coin(1));
+			}
+		});
+
+		fiveBahtButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				machine.insert(new Coin(5));
+			}
+		});
+
+		tenBahtButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				machine.insert(new Coin(10));
+			}
+		});
 	}
+
 
 	public void run() {
 		pack();
