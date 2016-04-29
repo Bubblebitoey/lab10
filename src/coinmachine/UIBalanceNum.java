@@ -11,22 +11,34 @@ public class UIBalanceNum extends JDialog {
 	private JButton tenBahtButton;
 	private JLabel balanceLabel;
 
+	private CoinMachine machine;
 
-	public JProgressBar getStatusBar() {
-		return statusBar;
+	public void setMaxStatusBar() {
+		statusBar.setMaximum(machine.getCapacity());
 	}
 
-	public JLabel getBalanceLabel() {
-		return balanceLabel;
+	public void updateStatus() {
+		statusBar.setValue(machine.getCount());
+		statusBar.setString(String.valueOf(machine.getCount()));
+	}
+
+	public void updateBalance() {
+		balanceLabel.setText(String.valueOf(machine.getBalance()));
 	}
 
 
 	public UIBalanceNum() {
 		setContentPane(contentPane);
+
 	}
 
 	public void run() {
 		pack();
+		setLocation(250,100);
 		setVisible(true);
+	}
+
+	public void setMachine(CoinMachine machine) {
+		this.machine = machine;
 	}
 }

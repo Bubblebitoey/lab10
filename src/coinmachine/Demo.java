@@ -67,7 +67,9 @@ public class Demo {
 		CoinMachine machine = new CoinMachine(capacity);
 		Demo demo = new Demo();
 
-		machine.addObserver(new Observable());
+		Observable o = new Observable();
+		o.setMachine(machine);
+		machine.addObserver(o);
 
 		demo.insertDialog(machine);
 	}
