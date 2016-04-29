@@ -8,6 +8,7 @@ import java.util.*;
  */
 class Observable implements Observer {
 	private UICoinNum coinNum = new UICoinNum();
+	private UIBalanceNum balanceNum = new UIBalanceNum();
 
 	public Observable() {
 
@@ -16,6 +17,7 @@ class Observable implements Observer {
 	@Override
 	public void update(java.util.Observable o, Object arg) {
 		coinNum.run();
+		balanceNum.run();
 		if (o != null) {
 			CoinMachine machine = (CoinMachine) o;
 			if (machine.isFull()) {
